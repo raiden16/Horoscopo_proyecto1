@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head style="background: #000">
+        
+        <title>Horoscopos de LVL </title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="js/libs/jquery/jquery.js"></script>
+        <script src="js/libs/twitter-bootstrap/js/bootstrap.js"></script>
+        <link rel="stylesheet" href="js/libs/twitter-bootstrap/css/bootstrap.css"/>
+        
+    </head>
+    <body style="background:  #000">
+        <div id="zodiaco" style="background: #000" >
+            <h1 style="color: #953b39">  Bienvenido a los Horóscopos Malvados </h1>
+            <h3 style="color: #953b39">Selecciona tu signo zodiacal de la Muerte</h3>
+            <select name="signo" id="signo" style=" color: #953b39" >
+                <option>Virgo</option>
+                <option>Libra</option>
+                <option>Sagitario</option>
+                <option>Capricornio</option>
+                <option>Piscis</option>
+                <option>Leo</option>
+                <option>Cancer</option>
+                <option>Acuario</option>
+                <option>Geminis</option>
+                <option>Tauro</option>
+                <option>Aries</option>
+                <option>Escorpion</option>
+            </select>
+            <br>
+            <input id="boton" type="submit" class="btn" value="Ver horóscopo" style="color: #953b39">
+            <div id="resultado"  style="color: #953b39" >
+                
+            </div>
+           </div>
+        <script>
+            $(document).ready(function(){
+             $("#boton").click(function(){
+                $.ajax({
+                    data:{        
+                'signo':$("#signo").val()
+                    },
+                    method:'get',
+                    url:'Horoscopo',
+                    success:function(res){
+                         $("#resultado").html(res);  
+                    }
+                });
+              
+             });
+            });
+        </script>
+        
+    </body>
+</html>
